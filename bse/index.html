@@ -3,10 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrickStoryEngine Download</title>
+    <title>BrickStoryEngine - TimoPollarini.nl</title>
+    <link rel="stylesheet" href="guide.css">
+    <!-- Google Font API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 </head>
 <body>
-    <a id="downloadlink" href="v1/BrickStoryEngine.exe" download></a>
-    <script>document.getElementById("downloadlink").click()</script>
+    <img src="/assets/Brick.png" alt="BrickStoryEngine" id="logo">
+    <h1>BrickStoryEngine</h1>
+    <p>Met BrickStoryEngine speel en maak je tekstgebaseerde verhalen in je terminal.</p>
+    <a href="/bse/v1/BrickStoryEngine.exe" download id="download">Download BrickStoryEngine</a>
+    <br><br>
+    <hr>
+    <h2>Installatie</h2>
+    <p>Om BrickStoryEngine te gerbuiken download je de uitvoerbare bestand met de link boven of direct via <a
+            href="https://www.timopollarini.nl/bse/v1/BrickStoryEngine.exe">www.timopollarini.nl/bse/v1/BrickStoryEngine.exe</a>.
+        Onthoud dat BrickStoryEngine nu nog alleen beschikbaar is voor Windows, dus (nog) niet MacOs en Linux.</p>
+    <h3>BELANGERIJK: Dingen die het programma stoppen van uitvoeren</h3>
+    <p>BrickStoryEngine functioneert voor nu nog niet zonder een werkend story bestand, hieraan word gewerkt. Voor nu kan je <a href="https://www.timopollarini.nl/bse/testStory.story" download>testStory.story</a> gebruiken, het is hier mogelijk om de opties en situatie titels te vervangen met wat je zelf wilt. <strong>Stop dit bestand in je Documenten folder</strong>, daar word gezocht naar .story bestand in BrickStoryEngine. Meer hierover in <a href="#open"><em>Open</em></a></p>
+    <h4>AntiVirus</h4>
+    <p>Het programma word mogelijk gedetecteerd als een virus, deactiveer je antivirus voor dit programma.</p>
+    <h4>Windows</h4>
+    <p>Windows blokkeert automatisch uitvoerbare bestanden die zijn gedownload van het internet en die niet een
+        certificaat hebben. Dit programma heeft geen certificaat omdat dat geld kost.
+        Om dit te omzeilen selecteer je de gedownloade exe, druk je op alt + enter, klik je op "Blokkering
+        Opheffen" en op "Oke" of "Toepassen".</p>
+    <p><img src="/assets/BlokkeringOpheffen.png" alt="Blokkering Opheffen via Eigenschappen"></p>
+    <hr>
+    <h1>Algemene Navigatie</h1>
+    <p>Je navigeert BrickStoryEngine met een menu dat bovenin een titel laat zien en daaronder de opties.
+        <strong>Je navigeert door de opties met de <code>pijltjestoetsen</code></strong> en <strong>je selecteert een
+            optie met <code>enter</code></strong>.
+    </p>
+    <hr>
+    <h1>Hoofdmenu</h1>
+    <ul>
+        <li><strong>Play</strong></li>
+        <li><strong>Open</strong></li>
+        <li><strong>Edit</strong></li>
+        <li><strong>Exit</strong></li>
+    </ul>
+    <h2><strong>Play</strong></h2>
+    <p>Wanneer je <strong>'play'</strong> selecteert ga je de speelmodus van BrickStoryEngine in. Je
+        <strong>Huidige story-bestand</strong> word afgespeeld. Als geen story-bestand geselecteerd is word er om een
+        gevraagd, meer over story-bestanden in <em>Open</em>. In de speelmodus staat er boven een Beschrijving van de
+        situatie, bijvoorbeeld <em>'He attacks, what do you do?'</em>. Daaronder staan de opties, bijvoorbeeld
+        <em>'Attack Back'</em> en <em>'Run Away'</em>. <strong>Je navigeert door de opties met de
+            <code>pijltjestoetsen</code></strong> en <strong>je selecteert een optie met <code>enter</code></strong>.
+    </p>
+    <p><img src="/assets/playmode.png" alt=""></p>
+    <h2><strong>Open</strong></h2>
+    <p>Je verhalen worden opgeslagen in .story bestanden, om er eentje te spelen of te bewerken open je het bestand via
+        het <em>Open</em> menu. Als je Open menu opent word er in een specefieke folder naar .story bestanden gezocht om
+        daarna uit te kiezen om te openen. <strong>Er word in je Documenten folder naar .story bestanden
+            gezocht</strong>.</p>
+    <p><img src="/assets/openmenu.png" alt=""></p>
+    <h1><strong>Edit</strong></h1>
+    <p>Het edit menu is het meest geavanceerd, het bevat allerlei submenu's</p>
+    <ul>
+        <li>Back</li>
+        <li>Play</li>
+        <li>Save</li>
+        <li>Add Situation</li>
+        <li>x: Situatie titel</li>
+    </ul>
+    <p><img src="/assets/editmenu.png" alt=""></p>
+    <h3>Back</h3>
+    <p>Met Back ga je terug naar het hoofdmenu, je veranderingen worden onthouden tot je het programma sluit. om je
+        veranderingen te houden voor de volgende keer selecteer je <em>Save</em>.</p>
+    <h3>Play</h3>
+    <p>Dit gebruik je om snel je veranderingen uit te testen zodat je niet naar het hoofdmenu hoeft te gaan. Als je het
+        einde van je spel heb bereikt kom je terug naar het edit-menu</p>
+    <h3>Save</h3>
+    <p>Dit slaat je verhaal op in het geopende bestand. <strong>Let op:</strong> Dit overschrijft de vorige versie.</p>
+    <h2>Add Situation</h2>
+    <p>Met deze optie maak je een nieuwe Situatie, volg deze stappen:</p>
+    <ol>
+        <li><code>Situation Title: </code>: In deze stap geef je de sitautie een titel, dit beschijft de situatie waar
+            de speler in zit, bijvoorbeeld <em>He attacks, what do you do?</em>.</li>
+        <li><code>amount of options (default 2): </code>: Hier geef je aan hoeveel opties je gaat instellen, dit kan 1
+            zijn als er niet te kiezen is door de gebruiker, of 2, of 3. Je kan niks invullen en op <code>Enter</code>
+            klikken om automatisch 2 opties te kiezen. Je kan later meer opties toevoegen of je opties bijwerken.</li>
+        <li><code>Option text: </code>: Hier geef je de tekst die weergegeven zal worden van de eerste optie, dit kan
+            bijvoorbeeld <em>Attack back</em> zijn.</li>
+        <li><code>Choose where this option will lead: </code>: Hier kan je kiezen naar welke situatie deze optie de
+            speler heen zal brengen. Dit bevat situatie nummer 0, wat het spel gelijk beeindigd.</li>
+        <li>Deze stappen worden herhaald voor het aantal Opties dat ingesteld is.</li>
+    </ol>
+    <h2>x: Situatie Titel</h2>
+    <p>Onder de andere opties in het edit menu, zijn er de Situaties, met het situatienummer links en de situatietitel
+        rechts (bekijk de afbeelding). Als je een situatie of een optie daarvan wil bijwerken, selecteer je de situatie
+        (waarvan de optie is). Het situatie-bijwerk-menu bevat meerdere opties:</p>
+    <ol>
+        <li>Edit Title</li>
+        <li>New option</li>
+        <li>y &lt;- Optie titel</li>
+    </ol>
+    <h3>Edit Title</h3>
+    <p>Met deze optie bijwerk je de titel van de geselecteerde Situatie. Het vraagt om de nieuwe titel en laat de vorige
+        titel zien, voor als je het vergeten was. Als je toch niet de titel wil veranderen kan je gewoon op
+        <code>Enter</code> drukken en niets invullen, dan blijft de titel hetzelfde.
+    </p>
+    <h3>New option</h3>
+    <p>Met deze optie maak je een nieuwe Optie in de huidige Situatie, volg deze stappen:</p>
+    <ol>
+        <li><code>New option text: </code>: Hier geef je de tekst van de optie op, dit word laten zien aan de speler,
+            dit kan bijvoorbeeld <em>Attack Back</em> zijn.</li>
+        <li><code>Select situation to refer to: </code>: Hier kan je kiezen naar welke situatie deze optie de speler
+            heen zal brengen. Dit bevat situatie nummer 0, wat het spel gelijk beeindigd.</li>
+    </ol>
+    <h3>y &lt;- Optie Titel</h3>
+    <p>y staat voor de situatie waar deze optie heen zal gaan, dit is een cijfer. Er staat voor elke optie in een
+        situatie deze optie met de titel van de optie. als je een van deze opties selecteert bijwerk je die optie met
+        deze stappen.</p>
+    <ol>
+        <li>eerst word er gevraagd met wat je de optietekst wil mee vervangen, je kan dit leeg laten en op
+            <code>Enter</code> klikken voor als je alleen de referentie-situatie wil bijwerken.
+        </li>
+        <li>Daarna kies je naar welke Situatie de optie heen zal gaan.</li>
+    </ol>
+    <hr>
+    <h1>Technische Specificaties</h1>
+    <p>BrickStoryEngine is een exe en kan uitgevoerd worden door te dubbelklikken op de exe in je bestandenbeheerder
+        (Verkenner op Windows), dit opent een Terminal window met BrickStoryEngine en de window zou automatisch sluiten
+        zodra BrickStoryEngine sluit (door Exit in de main menu of door een error.). het is ook mogelijk om de exe uit
+        te voeren vanuit cmd, dit zal de terminal open houden ook nadat BrickStoryEngine afsluit.</p>
+    <h2>Ondersteunde command line argumenten (parameters)</h2>
+    <p>Als je BrickStoryEngine vanuit cmd of de Run Menu (<code>Windows + R</code>) uitvoert is het mogelijk om
+        argumenten toe te voegen.
+        Nu word er één mogelijke argument ondersteunt, <code>file.story</code>. Voeg het pad naar een .story bestand toe
+        na BrickStoryEngine.exe, dit kan een lokaal bestand zijn (bijv. <code>file.story</code> of
+        <code>..\Documents\file.story</code>), of een bestand ergens anders (bijv.
+        <code>c:\users\gebruiker\OneDrive\mijnstory.story</code>). Voor een lokaal bestand moet het .story bestand in
+        dezelfde folder zitten als BrickStoryEngine.exe (Bijvoorbeeld <em>Downloads</em>). Als je BSE uitvoert met deze
+        argument word je automatisch in de Play modus gezet met die story.
+    </p>
+    <h1>Tips en Tricks</h1>
+    <p>Om gemakkelijk story's af te spelen kan je instellen dat je een story afspeelt door erop te dubbelklikken,
+        volg deze stappen:</p>
+    <ol>
+        <li>Rechtermuisklik op een .story bestand &gt; Openen met &gt; Kies een andere app</li>
+        <li>Scroll naar beneden en klik op <em>Een app op uw pc kiezen</em>.</li>
+        <li>Ga naar de plek waar BrickStoryEngine staat geinstalleerd (meestal <em>Downloads</em>)</li>
+        <li>Selecteer BrickStoryEngine.exe en klik op <em>Openen</em></li>
+        <li>Selecteer dan onderin <em>Altijd</em> of <em>Slechts één keer</em>.</li>
+    </ol>
+    <h1>Neem contact met mij op</h1>
+    <p>Heb je nog een vraag over BrickStoryEngine? <a href="mailto:timo.pollarini@gmail.com">Mail me dan!</a></p>
 </body>
 </html>
