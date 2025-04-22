@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrickStoryEngine - TimoPollarini.nl</title>
+    <title>BrickStoryGuide</title>
     <link rel="stylesheet" href="guide.css">
     <!-- Google Font API -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <img src="/assets/Brick.png" alt="BrickStoryEngine" id="logo">
     <h1>BrickStoryEngine</h1>
@@ -20,11 +22,11 @@
     <br><br>
     <hr>
     <h2>Installatie</h2>
-    <p>Om BrickStoryEngine te gerbuiken download je de uitvoerbare bestand met de link boven of direct via <a
+    <p>Om BrickStoryEngine te gebruiken download je de uitvoerbare bestand met de link boven of direct via <a
             href="https://www.timopollarini.nl/bse/release/BrickStoryEngine.exe">www.timopollarini.nl/bse/release/BrickStoryEngine.exe</a>.
         Onthoud dat BrickStoryEngine nu nog alleen beschikbaar is voor Windows, dus (nog) niet MacOs en Linux.</p>
     <h3>BELANGERIJK: Dingen die het programma stoppen van uitvoeren</h3>
-    <p>BrickStoryEngine functioneert voor nu nog niet zonder een werkend story bestand, hieraan word gewerkt. Voor nu kan je <a href="https://www.timopollarini.nl/bse/testStory.story" download>testStory.story</a> gebruiken, het is hier mogelijk om de opties en situatie titels te vervangen met wat je zelf wilt. <strong>Stop dit bestand in je Documenten folder</strong>, daar word gezocht naar .story bestand in BrickStoryEngine. Meer hierover in <a href="#open"><em>Open</em></a></p>
+    <p>BrickStoryEngine functioneert voor nu nog niet zonder een werkend story bestand, hieraan word gewerkt. Voor nu kan je <a href="https://www.timopollarini.nl/bse/testStory.story">testStory.story</a> gebruiken, het is hier mogelijk om de opties en situatie titels te vervangen met wat je zelf wilt. <strong>Stop dit bestand in je Documenten folder</strong>, daar word gezocht naar .story bestand in BrickStoryEngine. Meer hierover in <a href="#open"><em>Open</em></a></p>
     <h4>AntiVirus</h4>
     <p>Het programma word mogelijk gedetecteerd als een virus, deactiveer je antivirus voor dit programma.</p>
     <h4>Windows</h4>
@@ -32,7 +34,7 @@
         certificaat hebben. Dit programma heeft geen certificaat omdat dat geld kost.
         Om dit te omzeilen selecteer je de gedownloade exe, druk je op alt + enter, klik je op "Blokkering
         Opheffen" en op "Oke" of "Toepassen".</p>
-    <p><img src="/assets/BlokkeringOpheffen.png" alt="Blokkering Opheffen via Eigenschappen"></p>
+    <p><img src="/assets/BlokkeringOpheffen.png" alt=""></p>
     <hr>
     <h1>Algemene Navigatie</h1>
     <p>Je navigeert BrickStoryEngine met een menu dat bovenin een titel laat zien en daaronder de opties.
@@ -56,9 +58,9 @@
             <code>pijltjestoetsen</code></strong> en <strong>je selecteert een optie met <code>enter</code></strong>.
     </p>
     <p><img src="/assets/playmode.png" alt=""></p>
-    <h2><strong>Open</strong></h2>
+    <h2 id="open"><strong>Open</strong></h2>
     <p>Je verhalen worden opgeslagen in .story bestanden, om er eentje te spelen of te bewerken open je het bestand via
-        het <em>Open</em> menu. Als je Open menu opent word er in een specefieke folder naar .story bestanden gezocht om
+        het <em>Open</em> menu. Als je Open menu opent word er in een specifieke folder naar .story bestanden gezocht om
         daarna uit te kiezen om te openen. <strong>Er word in je Documenten folder naar .story bestanden
             gezocht</strong>.</p>
     <p><img src="/assets/openmenu.png" alt=""></p>
@@ -69,6 +71,7 @@
         <li>Play</li>
         <li>Save</li>
         <li>Add Situation</li>
+        <li>Delete Situation...</li>
         <li>x: Situatie titel</li>
     </ul>
     <p><img src="/assets/editmenu.png" alt=""></p>
@@ -83,7 +86,7 @@
     <h2>Add Situation</h2>
     <p>Met deze optie maak je een nieuwe Situatie, volg deze stappen:</p>
     <ol>
-        <li><code>Situation Title: </code>: In deze stap geef je de sitautie een titel, dit beschijft de situatie waar
+        <li><code>Situation Title: </code>: In deze stap geef je de sitautie een titel, dit beschrijft de situatie waar
             de speler in zit, bijvoorbeeld <em>He attacks, what do you do?</em>.</li>
         <li><code>amount of options (default 2): </code>: Hier geef je aan hoeveel opties je gaat instellen, dit kan 1
             zijn als er niet te kiezen is door de gebruiker, of 2, of 3. Je kan niks invullen en op <code>Enter</code>
@@ -94,6 +97,8 @@
             speler heen zal brengen. Dit bevat situatie nummer 0, wat het spel gelijk beeindigd.</li>
         <li>Deze stappen worden herhaald voor het aantal Opties dat ingesteld is.</li>
     </ol>
+    <h2>Delete Situation</h2>
+    <p>Hiermee verwijder je een Situatie van keuze, er kunnen problemen voorkomen als er nog een optie bestaat die verwijst naar de dan-verwijderde Situatie</p>
     <h2>x: Situatie Titel</h2>
     <p>Onder de andere opties in het edit menu, zijn er de Situaties, met het situatienummer links en de situatietitel
         rechts (bekijk de afbeelding). Als je een situatie of een optie daarvan wil bijwerken, selecteer je de situatie
@@ -101,6 +106,7 @@
     <ol>
         <li>Edit Title</li>
         <li>New option</li>
+        <li>Delete Option...</li>
         <li>y &lt;- Optie titel</li>
     </ol>
     <h3>Edit Title</h3>
@@ -111,11 +117,13 @@
     <h3>New option</h3>
     <p>Met deze optie maak je een nieuwe Optie in de huidige Situatie, volg deze stappen:</p>
     <ol>
-        <li><code>New option text: </code>: Hier geef je de tekst van de optie op, dit word laten zien aan de speler,
+        <li><code>New option text: </code>: Hier geef je de tekst van de optie op, dit word getoont aan de speler,
             dit kan bijvoorbeeld <em>Attack Back</em> zijn.</li>
         <li><code>Select situation to refer to: </code>: Hier kan je kiezen naar welke situatie deze optie de speler
             heen zal brengen. Dit bevat situatie nummer 0, wat het spel gelijk beeindigd.</li>
     </ol>
+    <h3>Delete Option...</h3>
+    <p>Hiermee verwijder je een optie naar keuze van de huidig geselecteerde situatie, onthoud dat dit problemen kan veroorzaken als dat de enige optie was.</p>
     <h3>y &lt;- Optie Titel</h3>
     <p>y staat voor de situatie waar deze optie heen zal gaan, dit is een cijfer. Er staat voor elke optie in een
         situatie deze optie met de titel van de optie. als je een van deze opties selecteert bijwerk je die optie met
@@ -153,6 +161,16 @@
         <li>Selecteer dan onderin <em>Altijd</em> of <em>Slechts één keer</em>.</li>
     </ol>
     <h1>Neem contact met mij op</h1>
-    <p>Heb je nog een vraag over BrickStoryEngine? <a href="mailto:timo.pollarini@gmail.com">Mail me dan!</a></p>
+    <p>Heb je nog een vraag over BrickStoryEngine? <a href="mailto:timo.pollarini@gmail.com">Mail me dan!</a>. Als je een bug (probleem) heb gevonden vergeet dan niet om <em>application.log</em> bij je mail te doen. dit helpt mij met het probleem identificeren. dit bestand vind je in dezelfde folder als waar BrickStoryEngine.exe werd uitgevoerd</p>
+    <h1>Bekende Problemen</h1>
+    <ul>
+        <li>Er gaat vanalles mis als er geen .story bestand(en) gevonden worden</li>
+        <li>bse crasht als .story bestand niet correct is geformatteerd (of leeg is)</li>
+    </ul>
+    <h3>Er gaat vanalles mis als er geen .story bestand(en) gevonden worden</h3>
+    <p>Tijdelijke oplossing: zorg ervoor dat (als je een .story bestand hebt), die in je Documenten folder zit. Als je geen .story bestanden hebt, gebruik dan <a href="https://www.timopollarini.nl/bse/testStory.story" download>testStory.story</a></p>
+    <h3>bse crasht als .story bestand niet correct is geformatteerd (of leeg is)</h3>
+    <p>Gebruik voor nu testStory.story (download staat bovenin)</p>
 </body>
+
 </html>
