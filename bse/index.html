@@ -4,178 +4,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrickStoryGuide</title>
-    <link rel="stylesheet" href="guide.css">
-    <!-- Google Font API -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <title>BrickStoryEngine - Timo Pollarini</title>
+    <link rel="stylesheet" href="/css/projectpage.css">
 </head>
 
 <body>
-    <div class="langselect"><a href="index.html">Nederlands</a><a href="en/index.html">English</a></div>
-    <img src="/assets/Brick.png" alt="BrickStoryEngine" id="logo">
-    <h1>BrickStoryEngine</h1>
-    <p>Met BrickStoryEngine speel en maak je tekstgebaseerde verhalen in je terminal.</p>
-    <a href="/bse/release/BrickStoryEngine.exe" download id="download">Download BrickStoryEngine (Windows)</a>
-    <a href="/bse/release/BrickStoryEngine-linux" download id="download">Download BrickStoryEngine (Linux)</a>
-    <br><p>Laatste versie: v1.1</p><br>
-    <hr>
-    <h2>Installatie</h2>
-    <p>Om BrickStoryEngine te gebruiken download je de uitvoerbare bestand met de link boven of direct via <a
-            href="https://www.timopollarini.nl/bse/release/BrickStoryEngine.exe">www.timopollarini.nl/bse/release/BrickStoryEngine.exe</a>.
-        BrickStoryEngine is nu ook beschikbaar voor Linux! gerbuik de knop boven om het bestand te downloaden voor linux.</p>
-    <h3>BELANGERIJK: Dingen die het programma stoppen van uitvoeren</h3>
-    <p>BrickStoryEngine functioneert voor nu nog niet zonder een werkend story bestand, hieraan word gewerkt. Voor nu kan je <a href="https://www.timopollarini.nl/bse/testStory.story">testStory.story</a> gebruiken, het is hier mogelijk om de opties en situatie titels te vervangen met wat je zelf wilt. <strong>Stop dit bestand in je Documenten folder</strong>, daar word gezocht naar .story bestand in BrickStoryEngine. Meer hierover in <a href="#open"><em>Open</em></a></p>
-    <h4>AntiVirus</h4>
-    <p>Het programma word mogelijk gedetecteerd als een virus, deactiveer je antivirus voor dit programma.</p>
-    <h4>Windows</h4>
-    <p>Windows blokkeert automatisch uitvoerbare bestanden die zijn gedownload van het internet en die niet een
-        certificaat hebben. Dit programma heeft geen certificaat omdat dat geld kost.
-        Om dit te omzeilen selecteer je de gedownloade exe, druk je op alt + enter, klik je op "Blokkering
-        Opheffen" en op "Oke" of "Toepassen".</p>
-    <p><img src="/assets/BlokkeringOpheffen.png" alt=""></p>
-    <hr>
-    <h1>Algemene Navigatie</h1>
-    <p>Je navigeert BrickStoryEngine met een menu dat bovenin een titel laat zien en daaronder de opties.
-        <strong>Je navigeert door de opties met de <code>pijltjestoetsen</code></strong> en <strong>je selecteert een
-            optie met <code>enter</code></strong>.
-    </p>
-    <hr>
-    <h1>Hoofdmenu</h1>
-    <ul>
-        <li><strong>Play</strong></li>
-        <li><strong>Open</strong></li>
-        <li><strong>Edit</strong></li>
-        <li><strong>Exit</strong></li>
-    </ul>
-    <h2><strong>Play</strong></h2>
-    <p>Wanneer je <strong>'play'</strong> selecteert ga je de speelmodus van BrickStoryEngine in. Je
-        <strong>Huidige story-bestand</strong> word afgespeeld. Als geen story-bestand geselecteerd is word er om een
-        gevraagd, meer over story-bestanden in <em>Open</em>. In de speelmodus staat er boven een Beschrijving van de
-        situatie, bijvoorbeeld <em>'He attacks, what do you do?'</em>. Daaronder staan de opties, bijvoorbeeld
-        <em>'Attack Back'</em> en <em>'Run Away'</em>. <strong>Je navigeert door de opties met de
-            <code>pijltjestoetsen</code></strong> en <strong>je selecteert een optie met <code>enter</code></strong>.
-    </p>
-    <p><img src="/assets/playmode.png" alt=""></p>
-    <h2 id="open"><strong>Open</strong></h2>
-    <p>Je verhalen worden opgeslagen in .story bestanden, om er eentje te spelen of te bewerken open je het bestand via
-        het <em>Open</em> menu. Als je Open menu opent word er in een specifieke folder naar .story bestanden gezocht om
-        daarna uit te kiezen om te openen. <strong>Er word in je Documenten folder naar .story bestanden
-            gezocht</strong>.</p>
-    <p><img src="/assets/openmenu.png" alt=""></p>
-    <h1><strong>Edit</strong></h1>
-    <p>Het edit menu is het meest geavanceerd, het bevat allerlei submenu's</p>
-    <ul>
-        <li>Back</li>
-        <li>Play</li>
-        <li>Save</li>
-        <li>Add Situation</li>
-        <li>Delete Situation...</li>
-        <li>x: Situatie titel</li>
-    </ul>
-    <p><img src="/assets/editmenu.png" alt=""></p>
-    <h3>Back</h3>
-    <p>Met Back ga je terug naar het hoofdmenu, je veranderingen worden onthouden tot je het programma sluit. om je
-        veranderingen te houden voor de volgende keer selecteer je <em>Save</em>.</p>
-    <h3>Play</h3>
-    <p>Dit gebruik je om snel je veranderingen uit te testen zodat je niet naar het hoofdmenu hoeft te gaan. Als je het
-        einde van je spel heb bereikt kom je terug naar het edit-menu</p>
-    <h3>Save</h3>
-    <p>Dit slaat je verhaal op in het geopende bestand. <strong>Let op:</strong> Dit overschrijft de vorige versie.</p>
-    <h2>Add Situation</h2>
-    <p>Met deze optie maak je een nieuwe Situatie, volg deze stappen:</p>
-    <ol>
-        <li><code>Situation Title: </code>: In deze stap geef je de sitautie een titel, dit beschrijft de situatie waar
-            de speler in zit, bijvoorbeeld <em>He attacks, what do you do?</em>.</li>
-        <li><code>amount of options (default 2): </code>: Hier geef je aan hoeveel opties je gaat instellen, dit kan 1
-            zijn als er niet te kiezen is door de gebruiker, of 2, of 3. Je kan niks invullen en op <code>Enter</code>
-            klikken om automatisch 2 opties te kiezen. Je kan later meer opties toevoegen of je opties bijwerken.</li>
-        <li><code>Option text: </code>: Hier geef je de tekst die weergegeven zal worden van de eerste optie, dit kan
-            bijvoorbeeld <em>Attack back</em> zijn.</li>
-        <li><code>Choose where this option will lead: </code>: Hier kan je kiezen naar welke situatie deze optie de
-            speler heen zal brengen. Dit bevat situatie nummer 0, wat het spel gelijk beeindigd.</li>
-        <li>Deze stappen worden herhaald voor het aantal Opties dat ingesteld is.</li>
-    </ol>
-    <h2>Delete Situation</h2>
-    <p>Hiermee verwijder je een Situatie van keuze, er kunnen problemen voorkomen als er nog een optie bestaat die verwijst naar de dan-verwijderde Situatie</p>
-    <h2>x: Situatie Titel</h2>
-    <p>Onder de andere opties in het edit menu, zijn er de Situaties, met het situatienummer links en de situatietitel
-        rechts (bekijk de afbeelding). Als je een situatie of een optie daarvan wil bijwerken, selecteer je de situatie
-        (waarvan de optie is). Het situatie-bijwerk-menu bevat meerdere opties:</p>
-    <ol>
-        <li>Edit Title</li>
-        <li>New option</li>
-        <li>Delete Option...</li>
-        <li>y &lt;- Optie titel</li>
-    </ol>
-    <h3>Edit Title</h3>
-    <p>Met deze optie bijwerk je de titel van de geselecteerde Situatie. Het vraagt om de nieuwe titel en laat de vorige
-        titel zien, voor als je het vergeten was. Als je toch niet de titel wil veranderen kan je gewoon op
-        <code>Enter</code> drukken en niets invullen, dan blijft de titel hetzelfde.
-    </p>
-    <h3>New option</h3>
-    <p>Met deze optie maak je een nieuwe Optie in de huidige Situatie, volg deze stappen:</p>
-    <ol>
-        <li><code>New option text: </code>: Hier geef je de tekst van de optie op, dit word getoont aan de speler,
-            dit kan bijvoorbeeld <em>Attack Back</em> zijn.</li>
-        <li><code>Select situation to refer to: </code>: Hier kan je kiezen naar welke situatie deze optie de speler
-            heen zal brengen. Dit bevat situatie nummer 0, wat het spel gelijk beeindigd.</li>
-    </ol>
-    <h3>Delete Option...</h3>
-    <p>Hiermee verwijder je een optie naar keuze van de huidig geselecteerde situatie, onthoud dat dit problemen kan veroorzaken als dat de enige optie was.</p>
-    <h3>y &lt;- Optie Titel</h3>
-    <p>y staat voor de situatie waar deze optie heen zal gaan, dit is een cijfer. Er staat voor elke optie in een
-        situatie deze optie met de titel van de optie. als je een van deze opties selecteert bijwerk je die optie met
-        deze stappen.</p>
-    <ol>
-        <li>eerst word er gevraagd met wat je de optietekst wil mee vervangen, je kan dit leeg laten en op
-            <code>Enter</code> klikken voor als je alleen de referentie-situatie wil bijwerken.
-        </li>
-        <li>Daarna kies je naar welke Situatie de optie heen zal gaan.</li>
-    </ol>
-    <hr>
-    <h1>Technische Specificaties</h1>
-    <p>BrickStoryEngine is een exe en kan uitgevoerd worden door te dubbelklikken op de exe in je bestandenbeheerder
-        (Verkenner op Windows), dit opent een Terminal window met BrickStoryEngine en de window zou automatisch sluiten
-        zodra BrickStoryEngine sluit (door Exit in de main menu of door een error.). het is ook mogelijk om de exe uit
-        te voeren vanuit cmd, dit zal de terminal open houden ook nadat BrickStoryEngine afsluit.</p>
-    <h2>Ondersteunde command line argumenten (parameters)</h2>
-    <p>Als je BrickStoryEngine vanuit cmd of de Run Menu (<code>Windows + R</code>) uitvoert is het mogelijk om
-        argumenten toe te voegen.
-        Nu word er één mogelijke argument ondersteunt, <code>file.story</code>. Voeg het pad naar een .story bestand toe
-        na BrickStoryEngine.exe, dit kan een lokaal bestand zijn (bijv. <code>file.story</code> of
-        <code>..\Documents\file.story</code>), of een bestand ergens anders (bijv.
-        <code>c:\users\gebruiker\OneDrive\mijnstory.story</code>). Voor een lokaal bestand moet het .story bestand in
-        dezelfde folder zitten als BrickStoryEngine.exe (Bijvoorbeeld <em>Downloads</em>). Als je BSE uitvoert met deze
-        argument word je automatisch in de Play modus gezet met die story.
-    </p>
-    <h2>Linux</h2>
-    <p>BrickStoryEngine is ook beschikbaar op linux! download het bovenaan met de knop. Het zoekt naar .story bestanden in /home/[gebruikernaam]/Documents, als de Documents folder niet bestaat dan zoekt het in je Home folder (/home/[gebruikersnaam]). Bse is met g++ gebouwd op WSL Debian GNU/Linux 12.</p>
-    <h1>Tips en Tricks</h1>
-    <p>Om gemakkelijk story's af te spelen kan je instellen dat je een story afspeelt door erop te dubbelklikken,
-        volg deze stappen:</p>
-    <ol>
-        <li>Rechtermuisklik op een .story bestand &gt; Openen met &gt; Kies een andere app</li>
-        <li>Scroll naar beneden en klik op <em>Een app op uw pc kiezen</em>.</li>
-        <li>Ga naar de plek waar BrickStoryEngine staat geinstalleerd (meestal <em>Downloads</em>)</li>
-        <li>Selecteer BrickStoryEngine.exe en klik op <em>Openen</em></li>
-        <li>Selecteer dan onderin <em>Altijd</em> of <em>Slechts één keer</em>.</li>
-    </ol>
-    <h1>Neem contact met mij op</h1>
-    <p>Heb je nog een vraag over BrickStoryEngine? <a href="mailto:timo.pollarini@gmail.com">Mail me dan!</a>. Als je een bug (probleem) heb gevonden vergeet dan niet om <em>application.log</em> bij je mail te doen. dit helpt mij met het probleem identificeren. dit bestand vind je in dezelfde folder als waar BrickStoryEngine.exe werd uitgevoerd</p>
-    <h1>Bekende Problemen</h1>
-    <ul>
-        <li>Er gaat vanalles mis als er geen .story bestand(en) gevonden worden</li>
-        <li>bse crasht als .story bestand niet correct is geformatteerd (of leeg is)</li>
-    </ul>
-    <h3>Er gaat vanalles mis als er geen .story bestand(en) gevonden worden</h3>
-    <p>Tijdelijke oplossing: zorg ervoor dat (als je een .story bestand hebt), die in je Documenten folder zit. Als je geen .story bestanden hebt, gebruik dan <a href="https://www.timopollarini.nl/bse/testStory.story" download>testStory.story</a></p>
-    <h3>bse crasht als .story bestand niet correct is geformatteerd (of leeg is)</h3>
-    <p>Gebruik voor nu testStory.story (download staat bovenin)</p>
-</body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="https://timopollarini.nl">TimoPollarini.nl</a></div>
+            <ul class="nav-links">
+                <li><a href="/over">Over</a></li>
+                <li><a href="/projecten">Projecten</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <main>
+        <!-- Project Hero Section -->
+        <section class="project-hero">
+            <div class="back-button">
+                <a href="/projecten" class="back-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="hero-content">
+                <img src="/media/bse/BSETransparent.png" alt="BrickStoryEngine" class="project-logo">
+                <h1 class="project-title">BrickStoryEngine</h1>
+                <p class="project-subtitle">Een programma waarmee je interactieve tekstgebaseerde verhalen maakt en
+                    speelt in je terminal.</p>
+
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="https://timopollarini.nl/bse/BrickStoryEngine.exe" target="_blank"
+                        id="download-btn">
+                        <span class="btn-text">Download</span>
+                    </a>
+                    <a class="btn btn-secondary" href="https://docs.timopollarini.nl/bse">
+                        <span class="btn-text">Meer Leren</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="project-container">
+            <!-- Screenshots Section -->
+            <section class="screenshots-section">
+                <div class="screenshots-grid">
+                    <div class="screenshot">
+                        <img src="/media/bse/BSE-playmode.png" alt="BSE Speelmodus">
+                    </div>
+                    <div class="screenshot">
+                        <img src="/media/bse/BSE-mainmenu.png" alt="BSE Hoofdmenu">
+                    </div>
+                    <div class="screenshot">
+                        <img src="/media/bse/BSE-newsit.png" alt="BSE nieuwe situatie menu">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Content -->
+            <div class="content-grid">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- Overview Section -->
+                    <section class="content-section">
+                        <h2>Overzicht</h2>
+                        <div class="section-content">
+                            <p>BrickStoryEngine is een zelfgemaakte game engine geschreven in C++ voor het maken en spelen van tekstgebaseerde avonturenspellen. Het project ontstond uit de wens om een spel te maken zonder de complexiteit van bestaande game engines te leren. Door te kiezen voor een tekstgebaseerde aanpak kon ik me volledig focussen op de engine-architectuur en gameplay mechanica, zonder de uitdagingen van 2D of 3D graphics.</p>
+
+                            <p>De engine biedt een complete ontwikkelomgeving met een ingebouwde editor waarin gebruikers interactieve verhalen kunnen maken via een intuïtieve menu-interface. Verhalen worden opgeslagen in een custom .story bestandsformaat dat situaties, keuzemogelijkheden en verhaallijn vastlegt. De speler navigeert door verhalen via pijltjestoetsen en maakt keuzes die het verloop van het verhaal beïnvloeden. De engine ondersteunt vertakkende verhaallijnen met meerdere uitkomsten en eindpunten.</p>
+                        </div>
+                    </section>
+
+                    <!-- Features Section -->
+                    <section class="content-section">
+                        <h2>Features</h2>
+                        <div class="section-content">
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon">⚡</div>
+                                    <h3>Snelle Performance</h3>
+                                    <p>Gemaakt met C++, een programmeertaal dat de snelste programma's geeft.</p>
+                                </div>
+
+                                <div class="feature-item">
+                                    <div class="feature-icon">💾</div>
+                                    <h3>Custom bestandstype</h3>
+                                    <p>Je verhalen worden geserialiseert naar het .story formaat om makkelijk opgeslagen te worden of om te delen.</p>
+                                </div>
+
+                                <div class="feature-item">
+                                    <div class="feature-icon">🎨</div>
+                                    <h3>Simpele gebruikersinterface</h3>
+                                    <p>Features die zichzelf uitleggen met simpele inputs</p>
+                                </div>
+
+                                <div class="feature-item">
+                                    <div class="feature-icon">📱</div>
+                                    <h3>Cross-platform</h3>
+                                    <p>Werkt op Windows en Linux voor de geavanceerde gebruikers</p>
+                                </div>
+                            </div>
+
+                            <p>De broncode is niet openbaar terwijl ik eraan werk.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Tech Links Section -->
+                    <section class="tech-links-section">
+                        <h3>Technische Links</h3>
+                        <div class="tech-links">
+                            <a href="https://docs.timopollarini.nl/bse" class="tech-link">
+                                <div class="link-icon">📖</div>
+                                <div class="link-content">
+                                    <span class="link-title">Documentatie</span>
+                                    <span class="link-desc">Uitgebreide handleiding</span>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+
+                            <a href="https://docs.timopollarini.nl/bse/updates" class="tech-link">
+                                <div class="link-icon">📋</div>
+                                <div class="link-content">
+                                    <span class="link-title">Changelog</span>
+                                    <span class="link-desc">Bekijk de laatste updates</span>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Project Info -->
+                    <section class="project-info-section">
+                        <h3>Project Info</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Status</span>
+                                <span class="info-value status-active">Live met reguliere updates</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Huidige versie</span>
+                                <span class="info-value">v1.2</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Technologieën</span>
+                                <span class="info-value">C++17</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Datum</span>
+                                <span class="info-value">2024</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Totaal tijd aan gewerkt</span>
+                                <span class="info-value"><img
+                                        src="https://wakatime.com/badge/user/e3234607-0260-462c-b1a8-ebabdededce2/project/4d237082-9d7e-4f4e-bd65-741b51bc6185.svg"
+                                        alt="wakatime"></span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        function detectOS() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.includes('linux')) return 'linux';
+            if (userAgent.includes('win')) return 'windows';
+            if (userAgent.includes('mac')) return 'mac';
+            return 'windows'; // fallback
+        }
+        function setdownloadlinks() {
+            const downloadBtn = document.getElementById('download-btn');
+            const os = detectOS();
+            if (os === 'linux') {
+                downloadBtn.href = '/bse/BrickStoryEngine-linux'
+            } else if (os === 'windows') {
+                downloadBtn.href = '/bse/BrickStoryEngine.exe'
+            } else if (os === 'mac') {
+                downloadBtn.href = "javascript:alert('BrickStoryEngine is nog niet beschikbaar voor MacOS (de schuld van apple)')";
+            }
+        }
+
+        setdownloadlinks();
+    </script>
+</body>
 
 </html>
