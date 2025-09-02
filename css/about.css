@@ -304,7 +304,7 @@ main {
 
 .hobby-card:hover .hobby-detail {
     opacity: 1;
-    max-height: 100px;
+    max-height: 100%;
     transform: translateY(0);
     margin-top: 0.5rem;
 }
