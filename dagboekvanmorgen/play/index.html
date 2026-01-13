@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagboek van Morgen - Player</title>
+    
+    <!-- Plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(212, 175, 55, 0.9);
+            border-color: rgba(212, 175, 55, 1);
+            color: #000;
+            transform: translateX(-4px);
+        }
+
+        .back-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Video Container */
+        .video-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        #player {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Plyr Customization */
+        .plyr {
+            --plyr-color-main: #d4af37;
+            --plyr-video-background: #000;
+        }
+
+        .plyr--video {
+            background: #000;
+        }
+
+        .plyr__controls {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        /* Hide back button when controls are hidden */
+        .plyr--hide-controls ~ .back-button {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .plyr:not(.plyr--hide-controls) ~ .back-button {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="https://timopollarini.nl/dagboekvanmorgen" class="back-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Terug
+    </a>
+
+    <!-- Video Container -->
+    <div class="video-container">
+        <video id="player" playsinline controls>
+            <source src="https://stream.timopollarini.nl/raw/TopGear.NG.mp4" type="video/mp4" />
+            <!-- Subtitle Track -->
+            <track kind="captions" label="Nederlands" srclang="nl" src="/dagboekvanmorgen/media/Dagboek van Morgen.vtt" default />
+        </video>
+    </div>
+
+    <!-- Plyr JS -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    
+    <script>
+        const player = new Plyr('#player', {
+            controls: [
+                'play-large',
+                'play',
+                'progress',
+                'current-time',
+                'mute',
+                'volume',
+                'captions',
+                'settings',
+                'pip',
+                'airplay',
+                'fullscreen'
+            ],
+            settings: ['captions', 'quality', 'speed'],
+            quality: {
+                default: 1080,
+                options: [1080, 720, 576, 480, 360, 240]
+            },
+            speed: {
+                selected: 1,
+                options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
+            },
+            captions: {
+                active: true,
+                language: 'nl',
+                update: true
+            },
+            keyboard: {
+                focused: true,
+                global: true
+            },
+            tooltips: {
+                controls: true,
+                seek: true
+            },
+            hideControls: true,
+            resetOnEnd: false
+        });
+
+        // Optional: Auto-play on load (might be blocked by browsers)
+        // player.play();
+
+        // Keyboard shortcuts info
+        console.log('Keyboard shortcuts:');
+        console.log('Space/K - Play/Pause');
+        console.log('F - Fullscreen');
+        console.log('M - Mute');
+        console.log('Arrow Left/Right - Seek');
+        console.log('Arrow Up/Down - Volume');
+        console.log('C - Toggle captions');
+    </script>
+</body>
+</html>
