@@ -205,8 +205,8 @@
         }
     </style>
 </head>
-<div id="swup">
-    <body class="font-sans antialiased">
+<body class="font-sans antialiased">
+    <div id="swup">
     
         <!-- Navigation (Transparent & Sticky) -->
         <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
@@ -585,12 +585,12 @@
                 if (e.key === 'Escape') closeTrailerModal();
             });
         </script>
-        <script src="https://unpkg.com/swup@4"></script>
-        <script src="https://unpkg.com/@swup/overlay-theme@2"></script>
+        <script src="https://unpkg.com/swup@4.9.2/dist/Swup.umd.js"></script>
+        <script src="https://unpkg.com/@swup/overlay-theme@2.0.2/dist/index.umd.js"></script>
         <script data-swup-ignore-script>
           const swup = new Swup({
             plugins: [new SwupOverlayTheme()]
           });
         </script>
-    </body>
-</div></html>
+    </div>
+</body></html>
