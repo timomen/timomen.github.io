@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body { --swup-overlay-theme-color: #0a0a0a; }
+    </style>
+      
     
     <script>
         tailwind.config = {
@@ -587,9 +591,10 @@
         </script>
         <script src="https://unpkg.com/swup@4.9.2/dist/Swup.umd.js"></script>
         <script src="https://unpkg.com/@swup/overlay-theme@2.0.2/dist/index.umd.js"></script>
+        <script src="https://unpkg.com/@swup/head-plugin@2"></script>
         <script data-swup-ignore-script>
           const swup = new Swup({
-            plugins: [new SwupOverlayTheme()]
+            plugins: [new SwupOverlayTheme(), new SwupHeadPlugin()]
           });
         </script>
     </div>
