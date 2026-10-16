@@ -1,53 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Timo Pollarini's persoonlijke portfolio website">
-    <title>Timo Pollarini</title>
-    <link rel="stylesheet" href="/css/home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timo Pollarini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo"><a href="#hero">TimoPollarini.nl</a></div>
-            <ul class="nav-links">
-                <li><a href="/over">Over</a></li>
-                <li><a href="/projecten">Projecten</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Timo Pollarini</h1>
-            <p class="hero-subtitle">Een hobbyprogrammeur die zich voorbereidt op de toekomst</p>
-            <div class="hero-buttons">
-                <a href="/projecten" class="hero-btn hero-btn-left">Projecten</a>
-                <a href="/over" class="hero-cta">Leer meer over mij</a>
-                <a href="/contact" class="hero-btn hero-btn-right">Contact</a>
+  <nav>
+    <a href="#" class="nav-logo">Timo Pollarini</a>
+    <ul class="nav-links">
+      <li><a href="#about">Over</a></li>
+      <li><a href="#projects">Projecten</a></li>
+      <li><a href="#updates">Updates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <div id="app">
+    <div class="state-msg">Laden…</div>
+  </div>
+  
+  <script>
+    const SLIDE_DURATION = 6000;
+  
+    function esc(str) {
+      return String(str)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;');
+    }
+  
+    function fmtDate(str) {
+      return new Date(str).toLocaleDateString('nl-NL', {
+        day: 'numeric', month: 'short', year: 'numeric'
+      });
+    }
+  
+    function statusClass(s) {
+      if (!s) return '';
+      const l = s.toLowerCase();
+      if (l === 'beschikbaar') return 'available';
+      if (l === 'coming soon') return 'soon';
+      return '';
+    }
+  
+    function firstParagraph(text) {
+      if (!text) return '';
+      return text.split(/\n\n+/)[0].replace(/\n/g, ' ').trim();
+    }
+  
+    function buildSlide(slide, i) {
+      const bg = slide.background || {};
+      let bgStyle = '';
+      let logoHtml = '';
+  
+      if (bg.type === 'gradient') {
+        bgStyle = `background: ${bg.gradient};`;
+      } else if (bg.type === 'gradient-logo') {
+        bgStyle = `background: ${bg.gradient};`;
+        if (bg.logoSrc) {
+          logoHtml = `
+            <div class="slide-logo-overlay">
+              <img src="${esc(bg.logoSrc)}" alt="" onerror="this.parentElement.style.display='none'">
+            </div>`;
+        }
+      } else if (bg.type === 'image') {
+        const hasSrc = bg.src && bg.src !== 'placeholder';
+        bgStyle = hasSrc
+          ? `background-image: url('${esc(bg.src)}'); background-size: cover; background-position: center;`
+          : `background: ${bg.fallbackGradient || 'linear-gradient(160deg,#111 0%,#080808 100%)'};`;
+        logoHtml += `<div class="slide-image-overlay"></div>`;
+      } else {
+        bgStyle = `background: linear-gradient(160deg, #111 0%, #080808 100%);`;
+      }
+  
+      const buttons = (slide.buttons || []).map(btn =>
+        `<a target="_blank" href="${esc(btn.href || '#')}" class="btn ${btn.primary ? 'btn-primary' : 'btn-secondary'}">${esc(btn.label)}</a>`
+      ).join('');
+  
+      return `
+        <div class="slide${i === 0 ? ' active' : ''}" data-index="${i}" aria-hidden="${i !== 0}">
+          <div class="slide-bg" style="${bgStyle}"></div>
+          ${logoHtml}
+          <div class="slide-content">
+            <h1 class="slide-title">${esc(slide.title)}</h1>
+            ${slide.subtitle ? `<p class="slide-subtitle">${esc(slide.subtitle)}</p>` : ''}
+            <div class="slide-buttons">${buttons}</div>
+          </div>
+        </div>`;
+    }
+  
+    function buildCarousel(slides) {
+      const slidesHtml = slides.map(buildSlide).join('');
+      const dotsHtml = slides.map((_, i) =>
+        `<button class="dot${i === 0 ? ' active' : ''}" data-i="${i}" aria-label="Slide ${i+1}"></button>`
+      ).join('');
+  
+      return `
+        <div id="carousel" role="region" aria-label="Carrousel">
+          ${slidesHtml}
+  
+          <div class="scroll-hint">
+            <div class="scroll-hint-line"></div>
+            <span>Scroll</span>
+          </div>
+  
+          <div class="carousel-controls">
+            <div class="carousel-dots">${dotsHtml}</div>
+            <div class="carousel-arrows">
+              <button class="arrow-btn" id="c-prev" aria-label="Vorige">
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M9 2L4 7l5 5"/>
+                </svg>
+              </button>
+              <button class="arrow-btn" id="c-next" aria-label="Volgende">
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M5 2l5 5-5 5"/>
+                </svg>
+              </button>
             </div>
-        </div>
-    </section>
+          </div>
+  
+          <div class="carousel-progress">
+            <div class="carousel-progress-bar" id="c-bar"></div>
+          </div>
+        </div>`;
+    }
+  
+    function buildAbout(about) {
+      const tags = (about.tags || []).map(t =>
+        `<span class="about-tag">${esc(t)}</span>`
+      ).join('');
+      return `
+        <section id="about">
+          <div>
+            <div class="section-label">Over mij</div>
+            <h2 class="about-heading">${esc(about.name)}</h2>
+            <div class="about-tags">${tags}</div>
+          </div>
+          <div>
+            <p class="about-text">${esc(about.text)}</p>
+          </div>
+        </section>`;
+    }
+  
+    function buildProjects(projects) {
+      const cards = projects.map(p => {
+        const tags = (p.tags || []).map(t =>
+          `<span class="project-tag">${esc(t)}</span>`
+        ).join('');
+        const sc = statusClass(p.status);
+        const href = p.href || '#';
+        const cardDesc = firstParagraph(p.description);
+        return `
+          <a target="_blank" href="${esc(href)}" class="project-card" aria-label="${esc(p.title)}">
+            <div class="project-card-header">
+              <span class="project-status ${sc}">${esc(p.status)}</span>
+              <span class="project-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5"/>
+                </svg>
+              </span>
+            </div>
+            <h3 class="project-title">${esc(p.title)}</h3>
+            <p class="project-desc">${esc(cardDesc)}</p>
+            <div class="project-tags">${tags}</div>
+          </a>`;
+      }).join('');
+  
+      return `
+        <section id="projects">
+          <div class="section-label">Projecten</div>
+          <div class="projects-grid">${cards}</div>
+        </section>`;
+    }
+  
+    function buildUpdates(updates) {
+      const items = updates.map(u => `
+        <div class="update-item">
+          <span class="update-date">${fmtDate(u.date)}</span>
+          <div>
+            <div class="update-title">${esc(u.title)}</div>
+            <p class="update-desc">${esc(u.description)}</p>
+          </div>
+        </div>`).join('');
+  
+      return `
+        <section id="updates">
+          <div class="section-label">Recente updates</div>
+          <div>${items}</div>
+        </section>`;
+    }
+  
+    function buildFooter(contact, name) {
+      const links = (contact.links || []).map(l =>
+        `<a href="${esc(l.href)}">${esc(l.label)}</a>`
+      ).join('');
+      return `
+        <footer id="contact">
+          <div>
+            <div class="footer-name">${esc(name)}</div>
+            <div class="footer-sub">Developer &amp; filmmaker uit Den Haag.</div>
+          </div>
+          <div class="footer-right">
+            <a href="mailto:${esc(contact.email)}" class="footer-email">${esc(contact.email)}</a>
+            <div class="footer-links">${links}</div>
+          </div>
+          <div class="footer-copy">© ${new Date().getFullYear()} ${esc(name)}. Alle rechten voorbehouden.</div>
+        </footer>`;
+    }
+  
+    function initCarousel(count) {
+      if (count < 1) return;
+  
+      let current = 0;
+      let timer = null;
+  
+      const slides = document.querySelectorAll('.slide');
+      const dots   = document.querySelectorAll('.dot');
+      const bar    = document.getElementById('c-bar');
+  
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        slides[current].setAttribute('aria-hidden', 'true');
+        dots[current].classList.remove('active');
+  
+        current = ((n % count) + count) % count;
+  
+        slides[current].classList.add('active');
+        slides[current].setAttribute('aria-hidden', 'false');
+        dots[current].classList.add('active');
+  
+        startProgress();
+      }
+  
+      function startProgress() {
+        clearTimeout(timer);
+        if (bar) {
+          bar.style.transition = 'none';
+          bar.style.width = '0%';
+          void bar.offsetWidth;
+          bar.style.transition = `width ${SLIDE_DURATION}ms linear`;
+          bar.style.width = '100%';
+        }
+        timer = setTimeout(() => goTo(current + 1), SLIDE_DURATION);
+      }
+  
+      document.getElementById('c-prev')?.addEventListener('click', () => goTo(current - 1));
+      document.getElementById('c-next')?.addEventListener('click', () => goTo(current + 1));
+      dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.i))));
+  
+      startProgress();
+    }
+  
+    async function init() {
+      let data;
+      try {
+        const res = await fetch('https://stream.timopollarini.nl/raw/data.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      } catch(e) {
+        const dataScript = document.getElementById('site-data');
+        if (dataScript) {
+          data = JSON.parse(dataScript.textContent);
+        } else {
+          document.getElementById('app').innerHTML =
+            `<div class="state-msg">Kon data niet laden.</div>`;
+          return;
+        }
+      }
+  
+      const { carousel, about, projects, updates: dataUpdates, contact } = data;
+  
+      let updates = dataUpdates || [];
+  
+      document.getElementById('app').innerHTML =
+        buildCarousel(carousel) +
+        '<div id="main">' +
+          buildAbout(about) +
+          buildProjects(projects || []) +
+          buildUpdates(updates) +
+        '</div>' +
+        buildFooter(contact, about.name);
+  
+      initCarousel(carousel.length);
+    }
 
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    const navEl = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        navEl.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+    
+    init();
+  </script>
 </body>
-
 </html>
